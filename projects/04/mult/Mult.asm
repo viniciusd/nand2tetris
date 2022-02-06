@@ -10,3 +10,34 @@
 // R0 >= 0, R1 >= 0, and R0*R1 < 32768.
 
 // Put your code here.
+@sum
+M=0
+@R1
+D=M
+@multiplied
+M=D
+(LOOP)
+	@multiplied
+	D=M-1
+	@STOP
+	D;JLT	// If multiplied<1
+	
+	@R0
+	D=M
+	@sum
+	M=M+D // Adds R0 into the sum
+	@multiplied
+	M=M-1 // Reduces @multiplied
+
+	@LOOP
+	0;JMP
+
+(STOP)
+	@sum
+	D=M
+	@R2
+	M=D  // R2 = sum
+
+(END)
+	@END
+	0;JMP
